@@ -1,0 +1,35 @@
+//
+$font-family: "Montserrat", sans-serif;
+$font-text: "Homemade Apple", cursive;
+$padding-default: 1.2rem;
+$border-focus: #0269a4;
+$white: #fff;
+$black: #000;
+$orange: rgb(251, 140, 35);
+$green: #00a36c;
+$red: #ff3000;
+$cyan: #16bed1;
+$color-hero: #e9e8e6;
+//
+
+// breakpoint
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+// breakpoint
+
+:root {
+    --font-family: #{$font-family};
+    --font-text: #{$font-text};
+    --padding-default: #{$padding-default};
+    --border-focus: #{$border-focus};
+    --white: #{$white};
+    --black: #{$black};
+    --orange: #{$orange};
+    --cyan: #{$cyan};
+    --green: #{$green};
+    --red: #{$red};
+    --color-hero: #{$color-hero};
+}

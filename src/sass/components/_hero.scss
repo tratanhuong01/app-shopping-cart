@@ -1,0 +1,206 @@
+.hero {
+    width: 100%;
+    overflow: hidden;
+    height: 50rem;
+    @include min-lg {
+        height: 74rem;
+    }
+    background-color: var(--color-hero);
+    position: relative;
+    &__wave {
+        @include max-md {
+            display: none;
+        }
+        &.top {
+            background-image: url(https://assets.website-files.com/5f8777f…/5f87b87…_wave_menu.svg);
+            background-position: 50% 50%;
+            background-size: auto;
+            background-repeat: repeat-x;
+            background-attachment: scroll;
+        }
+        &.bottom {
+            bottom: -2rem;
+            transform: rotate(180deg);
+            z-index: 20;
+            width: 100%;
+            background-image: url(https://assets.website-files.com/5f8777f…/5f87bed…_wave_white_down_1.svg);
+        }
+        width: 100%;
+        position: absolute;
+        background-position: 50% 50%;
+        background-size: auto;
+        background-repeat: repeat-x;
+        background-attachment: scroll;
+        left: 0;
+        height: 3.6rem;
+    }
+    &__image {
+        position: absolute;
+        transition: 0.3s;
+        transform-style: preserve-3d;
+        transform-origin: top;
+        &.top__left {
+            left: 0;
+            &.active {
+                @include max-md {
+                    left: -15rem;
+                    top: -20rem;
+                }
+                @include min-xxl {
+                    left: 40rem;
+                }
+                animation: hero_1 1s;
+                @include min-xxl {
+                    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                        skew(0deg, 0deg);
+                }
+            }
+        }
+        &.bottom__left {
+            bottom: 0;
+            left: 0;
+            &.active {
+                @include max-md {
+                    left: -35rem;
+                }
+                @include min-md {
+                    left: -20rem;
+                }
+                @include min-lg {
+                    left: -10rem;
+                }
+                @include min-xxl {
+                    left: 10rem;
+                }
+                animation: hero_2 1s;
+                @include min-xxl {
+                    bottom: 0;
+                    transform: translate3d(10rem, 10rem, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                        skew(0deg, 0deg);
+                }
+            }
+        }
+        &.top__right {
+            @include max-md {
+                right: -35rem;
+            }
+            @include min-md {
+                right: -25rem;
+            }
+            @include min-lg {
+                right: -10rem;
+            }
+            @include min-xxl {
+                right: 10rem;
+            }
+            &.active {
+                animation: hero_3 1s;
+                @include min-xxl {
+                    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                        skew(0deg, 0deg);
+                }
+            }
+        }
+    }
+    &__small {
+        width: 30rem;
+        height: 30rem;
+        background-size: cover;
+        border-radius: 100rem;
+    }
+    &__big {
+        width: 40rem;
+        height: 40rem;
+        @include min-xxl {
+            width: 50rem;
+            height: 50rem;
+        }
+        background-size: cover;
+        border-radius: 100rem;
+    }
+    &__content {
+        @include absoluteCenter();
+        @include max-sm {
+            padding: 1rem;
+        }
+        @include min-sm {
+            max-width: 50rem;
+        }
+        & > div {
+            & > h1 {
+                text-align: center;
+                font-weight: 800;
+                line-height: 4.3rem;
+                font-size: 4rem;
+                @include max-md {
+                    white-space: nowrap;
+                }
+                @include min-md {
+                    line-height: 6.3rem;
+                    font-size: 6rem;
+                }
+            }
+            & > p {
+                color: #333;
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+                text-align: center;
+                margin: 2rem 0rem;
+                margin-bottom: 3rem;
+            }
+            & > div {
+                text-align: center;
+                margin: 1rem 0rem;
+                & > button {
+                    font-size: 1.7rem;
+                    background-color: var(--red);
+                    font-weight: 500;
+                    color: var(--white);
+                    display: block;
+                    margin: auto;
+                    @include flexJustifyAlign(center, center);
+                    width: 25rem;
+                    border-radius: 100rem;
+                    height: 6rem;
+                    transition: transform 0.5s;
+                    &:hover {
+                        background-color: var(--orange);
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes hero_1 {
+    0% {
+        transform: translate3d(0, -30rem, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(79deg)
+            skew(0deg, 0deg);
+    }
+    100% {
+        @include min-lg {
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        }
+    }
+}
+@keyframes hero_2 {
+    0% {
+        transform: translateX(-100%);
+        transform: translate3d(0, 100rem, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(79deg)
+            skew(0deg, 0deg);
+    }
+    100% {
+        transform: translate3d(10rem, 10rem, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg, 0deg);
+    }
+}
+@keyframes hero_3 {
+    0% {
+        transform: translate3d(0, -30rem, 0rem) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(79deg)
+            skew(0deg, 0deg);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+}

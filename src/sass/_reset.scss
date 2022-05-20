@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*:focus {
+    outline: none;
+}
+
+html {
+    font : {
+        size: 62.5%;
+        family: var(--font-family);
+    }
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select,
+input,
+button {
+    border: none;
+    cursor: pointer;
+    padding: var(--padding-default);
+}
+
+input:focus {
+    border: 0.1rem solid var(--border-focus);
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    object-fit: cover;
+}

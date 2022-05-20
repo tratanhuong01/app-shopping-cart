@@ -1,0 +1,38 @@
+.error-input {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--red);
+    &.active {
+        margin: 1rem 0rem;
+    }
+}
+.icon-input {
+    font-size: 2rem;
+    color: gray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+}
+.eye-input {
+    font-size: 2rem;
+    color: gray;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    cursor: pointer;
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+    &.icon input {
+        padding-left: 4rem;
+    }
+    input {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 100%;
+        padding: var(--padding-default);
+    }
+}

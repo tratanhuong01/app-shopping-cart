@@ -1,0 +1,131 @@
+.header {
+    &__overlay {
+        width: 100%;
+        display: none;
+        &.active {
+            display: block;
+        }
+        @include fixedFull();
+        z-index: 49;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    padding: 0.5rem 2rem;
+    @include flexJustifyAlign(flex-start, center);
+    &__mobile {
+        font-size: 3.6rem;
+        cursor: pointer;
+        padding-right: 2rem;
+        color: var(--green);
+        @include min-md {
+            display: none;
+        }
+    }
+    &__logo {
+        width: 20rem;
+        a {
+            display: block;
+        }
+    }
+    &__menu {
+        @include max-md {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.5s;
+            &.active {
+                visibility: visible;
+                opacity: 1;
+                transform: translateX(0);
+            }
+            z-index: 50;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 30rem;
+            background-color: var(--white);
+            height: 100%;
+            & > ul {
+                display: block !important;
+            }
+        }
+        padding-left: 1rem;
+        @include min-md {
+            padding-left: 5rem;
+        }
+        & > ul {
+            display: flex;
+            & > li.active > div {
+                color: var(--orange) !important;
+            }
+            & > li > div > i {
+                font-size: 2rem;
+            }
+            li {
+                cursor: pointer;
+                div {
+                    @include flexJustifyAlign(flex-start, center);
+                    gap: 0.4rem;
+                }
+                padding: 1.2rem 1.6rem;
+                position: relative;
+                font-weight: 500;
+                & > ul.active {
+                    display: block;
+                }
+                & > ul {
+                    padding: 1rem 1rem 0rem 1rem;
+                    background-color: var(--white);
+                    z-index: 10;
+                    display: none;
+                    @include min-lg {
+                        position: absolute;
+                        top: 100%;
+                        left: -1rem;
+                    }
+                    & > li {
+                        white-space: nowrap;
+                        &:hover {
+                            color: var(--green);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__right {
+        flex: 1;
+        @include flexJustifyAlign(flex-end, center);
+        gap: 2rem;
+        span {
+            cursor: pointer;
+            &:nth-child(1) {
+                font-size: 2rem;
+            }
+            &:nth-child(2) {
+                font-weight: 500;
+            }
+            &:nth-child(3) {
+                font-weight: bold;
+                @include flexJustifyAlign(center, center);
+                width: 2.5rem;
+                height: 2.5rem;
+                color: var(--white);
+                font-size: 1.4rem;
+                border-radius: 100rem;
+                background-color: var(--green);
+            }
+        }
+        div {
+            @include max-md {
+                display: none;
+            }
+            cursor: pointer;
+            background-color: var(--green);
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 1rem 1.2rem;
+            border-radius: 100rem;
+        }
+    }
+}
