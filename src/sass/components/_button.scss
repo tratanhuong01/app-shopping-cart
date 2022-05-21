@@ -1,0 +1,29 @@
+.button-orange {
+    padding: 2rem 3.5rem;
+    background-color: var(--orange);
+    color: var(--white);
+    font-weight: 600;
+    transition: all 0.5s;
+    &:hover {
+        transform: scale(1.05);
+        background-color: var(--red);
+    }
+    border-radius: 100rem;
+    @include flexJustifyAlign(center, center);
+    margin: auto;
+}
+
+.button-green {
+    padding: 2rem 3.5rem;
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: 600;
+    transition: all 0.5s;
+    &:hover {
+        transform: scale(1.05);
+        background-color: var(--cyan);
+    }
+    border-radius: 100rem;
+    @include flexJustifyAlign(center, center);
+    margin: auto;
+}

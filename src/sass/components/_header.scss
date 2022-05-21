@@ -1,20 +1,28 @@
 .header {
+    position: relative;
     &__overlay {
         width: 100%;
         display: none;
         &.active {
             display: block;
         }
-        @include fixedFull();
+        @include absoluteFull();
         z-index: 49;
-        background-color: rgba(0, 0, 0, 0.8);
     }
     padding: 0.5rem 2rem;
     @include flexJustifyAlign(flex-start, center);
     &__mobile {
-        font-size: 3.6rem;
+        font-size: 3.2rem;
+        &.active {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 100rem;
+            background-color: var(--orange);
+            color: var(--white);
+            @include flexJustifyAlign(center, center);
+        }
         cursor: pointer;
-        padding-right: 2rem;
+        margin-right: 2rem;
         color: var(--green);
         @include min-md {
             display: none;
@@ -28,22 +36,26 @@
     }
     &__menu {
         @include max-md {
+            padding-bottom: 5rem;
             visibility: hidden;
             opacity: 0;
-            transform: translateX(-100%);
+            transform: translateY(-100%);
             transition: all 0.5s;
             &.active {
+                & .hero__wave {
+                    display: block !important;
+                    top: 97% !important;
+                }
                 visibility: visible;
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
             z-index: 50;
-            position: fixed;
-            top: 0;
+            position: absolute;
+            top: 8rem;
             left: 0;
-            width: 30rem;
+            width: 100%;
             background-color: var(--white);
-            height: 100%;
             & > ul {
                 display: block !important;
             }

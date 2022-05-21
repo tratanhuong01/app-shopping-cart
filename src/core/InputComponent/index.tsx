@@ -21,7 +21,7 @@ const InputComponent = ({ placeholder, type, classContainer, classInput, error, 
             <div className={`input-container ${icon ? `icon` : ''} ${classContainer || ''}`} >
                 {icon && <span className={`${icon} icon-input`}></span>}
                 <input type={type === "password" ? show ? "text" : "password" : type} style={style}
-                    placeholder={placeholder} className={`${classInput || ''}`} />
+                    placeholder={placeholder} className={`${classInput || ''}`} spellCheck={false} />
                 {type === "password" &&
                     <span onClick={() => setShow(!show)} className={`eye-input bx bx-${show ? 'show' : 'hide'}`}></span>}
             </div>

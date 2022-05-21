@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 *:focus {
     outline: none;
@@ -35,7 +36,9 @@ select::-ms-expand {
 
 select,
 input,
-button {
+button,
+textarea {
+    font-family: var(--font-family);
     border: none;
     cursor: pointer;
     padding: var(--padding-default);
@@ -45,9 +48,28 @@ input:focus {
     border: 0.1rem solid var(--border-focus);
 }
 
+input::placeholder,
+textarea::placeholder {
+    font-family: var(--font-family);
+}
+
+textarea {
+    resize: none;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    &:focus {
+        border: 0.1rem solid var(--border-focus);
+    }
+}
+
 img,
 video,
 iframe {
     max-width: 100%;
     object-fit: cover;
+}
+
+h2 {
+    @include max-md {
+        font-size: 3.2rem !important;
+    }
 }

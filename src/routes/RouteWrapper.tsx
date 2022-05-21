@@ -1,8 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { v4 } from 'uuid'
-import { PAGE_ABOUT, PAGE_HOME } from '../constants/constants'
+import { PAGE_ABOUT, PAGE_CONTACT, PAGE_HOME, PAGE_SHOP } from '../constants/constants'
 import { RouteProps } from '../interfaces/interfaces'
+import About from '../pages/About'
+import Contact from '../pages/Contact'
 import Home from '../pages/Home'
+import Shop from '../pages/Shop'
 
 export const routes: RouteProps[] = [
     {
@@ -11,30 +14,29 @@ export const routes: RouteProps[] = [
         name: "HOME",
         element: <Home />,
         exact: true,
-        listChilren: [
-            {
-                id: v4(),
-                name: "HOME 1",
-                path: ""
-            },
-            {
-                id: v4(),
-                name: "HOME 2",
-                path: ""
-            },
-            {
-                id: v4(),
-                name: "HOME 3",
-                path: ""
-            }
-        ],
-        hasChildren: true
+        hasChildren: false
+    },
+    {
+        id: v4(),
+        path: PAGE_SHOP,
+        name: "SHOP",
+        element: <Shop />,
+        exact: true,
+        hasChildren: false
     },
     {
         id: v4(),
         path: PAGE_ABOUT,
         name: "ABOUT",
-        element: null,
+        element: <About />,
+        exact: true,
+        hasChildren: false
+    },
+    {
+        id: v4(),
+        path: PAGE_CONTACT,
+        name: "CONTACT",
+        element: <Contact />,
         exact: true,
         hasChildren: false
     }

@@ -1,10 +1,14 @@
 @import "./variables";
-@import "./reset";
 @import "./mixins";
+@import "./reset";
 @import "./global";
+@import "./main";
 //
 @import "./components/hero";
 @import "./components/header";
 @import "./components/footer";
 @import "./components/input";
 @import "./components/button";
+@import "./components/about";
+@import "./components/contact";
+@import "./components/modal";

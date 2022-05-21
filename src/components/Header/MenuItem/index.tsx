@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { RouteProps } from "../../../interfaces/interfaces"
 
 type Props = {
@@ -8,12 +8,16 @@ type Props = {
 }
 
 const MenuItem = ({ route, active, setActive }: Props) => {
+    //
+    const navigate = useNavigate()
+    //
     return (
-        <li onClick={() => {
-            setActive(!active ? route.id : active !== route.id ? route.id : -1);
-        }} className={active === route.id ? 'active' : ''}>
+        <li className={active === route.id ? 'active' : ''}>
             <div>
-                <span>{route.name}</span>
+                <span onClick={() => {
+                    setActive(!active ? route.id : active !== route.id ? route.id : -1);
+                    if (!route.hasChildren) navigate(route.path);
+                }}>{route.name}</span>
                 {route.hasChildren && <i className="bx bx-chevron-down"></i>}
             </div>
             {route.hasChildren &&

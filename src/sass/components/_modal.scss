@@ -1,0 +1,102 @@
+.modal {
+    &__overlay {
+        transition: all 0.3s;
+        @include fixedFull();
+        z-index: 99;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        visibility: hidden;
+        opacity: 0;
+    }
+    &__overlay.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    &__container {
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: center;
+        z-index: 100;
+        transition: all 0.3s;
+        @include fixedCenterScale(0);
+        padding-top: 2rem;
+        border-radius: 0.8rem;
+        background-color: var(--white);
+        & > div {
+            position: relative;
+        }
+    }
+    &__close {
+        position: absolute;
+        top: -0.5rem;
+        right: 1.2rem;
+        cursor: pointer;
+        font-size: 3.2rem;
+        border-radius: 100rem;
+    }
+    &.active &__container {
+        &--header {
+            padding: 0rem 2rem;
+            text-align: center;
+            height: 4rem;
+            border-bottom: 0.1rem solid rgba($color: #000000, $alpha: 0.2);
+        }
+        &--body {
+            padding: 2rem;
+        }
+        visibility: visible;
+        opacity: 1;
+        @include fixedCenterScale(1);
+    }
+    &__cart {
+        width: 50rem;
+        &--main {
+            height: 30rem;
+            @include flexJustifyAlign(center, center);
+        }
+        &--empty {
+            height: 20rem;
+            padding: 5rem;
+            p {
+                text-align: center;
+                font-size: 1.8rem;
+                margin-bottom: 4rem;
+                color: rgba($color: #000000, $alpha: 0.7);
+            }
+        }
+        &--footer {
+            border-top: 0.1rem solid rgba($color: #000000, $alpha: 0.2);
+            padding: 1rem;
+            button {
+                width: 100%;
+                text-transform: uppercase;
+            }
+        }
+        &--item {
+            padding: 1rem;
+            @include flexJustifyAlign(flex-start, center);
+            gap: 2rem;
+            img {
+                width: 8rem;
+                height: 8rem;
+                border-radius: 100rem;
+            }
+            div {
+                p {
+                    font-weight: 700;
+                    margin-bottom: 1rem;
+                }
+                span {
+                    display: block;
+                    color: gray;
+                }
+                button {
+                    padding: 1rem 0rem;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    color: var(--red);
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
