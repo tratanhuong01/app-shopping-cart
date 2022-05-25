@@ -14,7 +14,8 @@ export const routes: RouteProps[] = [
         name: "HOME",
         element: <Home />,
         exact: true,
-        hasChildren: false
+        hasChildren: false,
+        title: "Home",
     },
     {
         id: v4(),
@@ -22,7 +23,8 @@ export const routes: RouteProps[] = [
         name: "SHOP",
         element: <Shop />,
         exact: true,
-        hasChildren: false
+        hasChildren: false,
+        title: "Shop"
     },
     {
         id: v4(),
@@ -30,7 +32,8 @@ export const routes: RouteProps[] = [
         name: "ABOUT",
         element: <About />,
         exact: true,
-        hasChildren: false
+        hasChildren: false,
+        title: "About"
     },
     {
         id: v4(),
@@ -38,7 +41,8 @@ export const routes: RouteProps[] = [
         name: "CONTACT",
         element: <Contact />,
         exact: true,
-        hasChildren: false
+        hasChildren: false,
+        title: "Contact"
     }
 ]
 

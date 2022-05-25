@@ -12,9 +12,11 @@ import OurMenu from "../components/HomeItem/OurMenu";
 import WrapperPage from "./WrapperPage";
 import HomeTitleTop from "../components/HomeItem/HomeTitleTop";
 import ItemProduct from "../components/ItemProduct";
+import useTitle from "../hooks/useTitle";
 
 const Home = () => {
     //
+    useTitle("Home")
     const listPlan = [
         {
             id: 1,

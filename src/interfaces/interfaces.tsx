@@ -8,5 +8,10 @@ export interface RouteProps {
     exact?: boolean,
     listChilren?: { id: string, name: string, path: string }[
     ],
-    hasChildren: boolean
+    hasChildren: boolean,
+    title: string,
+}
+
+export interface Cart {
+    id: string,
 }

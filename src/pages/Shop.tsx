@@ -1,8 +1,10 @@
 import ItemProduct from '../components/ItemProduct'
+import useTitle from '../hooks/useTitle';
 import WrapperPage from './WrapperPage'
 
 const Shop = () => {
     //
+    useTitle("Ship");
     const listProduct = [
         {
             id: 1,

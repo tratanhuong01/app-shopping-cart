@@ -1,7 +1,11 @@
 import { ItemWaveHero } from '../components/Hero'
+import useTitle from '../hooks/useTitle'
 import WrapperPage from './WrapperPage'
 
 const About = () => {
+    //
+    useTitle("About")
+    //
     return (
         <WrapperPage>
             <div className="about__top">

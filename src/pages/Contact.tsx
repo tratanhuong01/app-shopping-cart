@@ -2,9 +2,13 @@ import { ItemWaveHero } from "../components/Hero"
 import Slider from "../components/Slider"
 import ButtonComponent from "../core/ButtonComponent"
 import InputComponent from "../core/InputComponent"
+import useTitle from "../hooks/useTitle"
 import WrapperPage from "./WrapperPage"
 
 const Contact = () => {
+    //
+    useTitle("Contact")
+    //
     return (
         <WrapperPage>
             <div className="contact">

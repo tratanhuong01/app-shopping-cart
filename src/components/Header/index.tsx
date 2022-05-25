@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { LOGO_URL, PAGE_HOME } from '../../constants/constants'
+import { CartValue } from '../../contexts/CartContext/@types.cart'
+import { CartContext } from '../../contexts/CartContext/CartContext'
 import { ModalValue } from '../../contexts/ModalContext/@types.modal'
 import { ModalContext } from '../../contexts/ModalContext/ModalContext'
 import { routes } from '../../routes/RouteWrapper'
@@ -11,6 +13,7 @@ import MenuItem from './MenuItem'
 const Header = () => {
     //
     const { modalUpdateState } = useContext(ModalContext) as ModalValue;
+    const { cart } = useContext(CartContext) as CartValue
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [active, setActive] = useState<string>("");
     const location = useLocation();
@@ -49,7 +52,7 @@ const Header = () => {
                 <div className="header__right">
                     <span onClick={() => modalUpdateState(false, <ModalCart />)} className='bx bx-cart'></span>
                     <span onClick={() => modalUpdateState(false, <ModalCart />)}> CART</span>
-                    <span>0</span>
+                    <span>{cart.list.length}</span>
                     <div>GET STARTED</div>
                 </div>
 

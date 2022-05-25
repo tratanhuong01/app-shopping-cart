@@ -1,5 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { v4 } from "uuid";
+import { CartValue } from "../../contexts/CartContext/@types.cart";
+import { CartContext } from "../../contexts/CartContext/CartContext";
+import { ModalValue } from "../../contexts/ModalContext/@types.modal";
+import { ModalContext } from "../../contexts/ModalContext/ModalContext";
 import ButtonComponent from "../../core/ButtonComponent";
+import ModalCart from "../Cart/ModalCart";
 
 type ItemProductProps = {
     product: {
@@ -14,6 +20,8 @@ type ItemProductProps = {
 const ItemProduct = ({ product }: ItemProductProps) => {
     //
     const [loading, setLoading] = useState<boolean>(false);
+    const { modalUpdateState } = useContext(ModalContext) as ModalValue;
+    const { addCart } = useContext(CartContext) as CartValue;
     //
     return (
         <div className="item-product">
@@ -35,8 +43,16 @@ const ItemProduct = ({ product }: ItemProductProps) => {
                         {product.description}
                     </p>
                     <ButtonComponent type="button" handleClick={() => {
+                        let timeOut: any;
+                        clearTimeout(timeOut);
                         if (loading) return;
                         setLoading(true)
+                        timeOut = setTimeout(() => {
+                            addCart({ id: v4() });
+                            modalUpdateState(false, <ModalCart />);
+                            setLoading(false);
+                            clearTimeout(timeOut);
+                        }, 500);
                     }} className={loading ? 'active' : ''}>
                         {loading ? 'ADDING TO CART...' : 'ADD TO CART'}
                     </ButtonComponent>
